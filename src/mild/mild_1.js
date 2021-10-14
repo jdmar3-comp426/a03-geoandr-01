@@ -70,13 +70,12 @@ export function maxAndMin(numbers) {
  */
 export function countArray(array) {
     var obj = {}
-    return null;
     for (var i = 0; i < array.length; i++) {
-        if (array[i].isArray()) {
-            for (i = 0; i < array[i].length; i++) {
-                //logic about traversing array object 
-            }
-            //logic for traversing general array to go the individual stuff 
+        if (array[i] in obj) {
+            obj.array[i]++
+        } else {
+            obj.array[i] = 1
         }
     }
+    return obj
 }
