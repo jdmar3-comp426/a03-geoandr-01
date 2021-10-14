@@ -10,7 +10,7 @@
  */
 export function sumToString(a, b) {
     var total = a + b;
-    return total.toString()
+    return a + " + " + b + " = " + total
 }
 
 
@@ -26,7 +26,7 @@ export function sumToString(a, b) {
  */
 export function getIncreasingArray(startNumber, endNumber) {
     var array = []
-    for (i = 0; i < endNumber - startNumber + 1; i++) {
+    for (var i = 0; i < endNumber - startNumber + 1; i++) {
         array[i] = i + startNumber
     }
     return array
@@ -42,12 +42,12 @@ export function getIncreasingArray(startNumber, endNumber) {
 export function maxAndMin(numbers) {
     var min = numbers[0];
     var max = numbers[0];
-    for (i = 1; i < numbers.length; i++) {
+    for (var i = 1; i < numbers.length; i++) {
         if (numbers[i] < min) {
             min = numbers[i]
         }
     }
-    for (i = 1; i < numbers.length; i++) {
+    for (var i = 1; i < numbers.length; i++) {
         if (numbers[i] > max) {
             max = numbers[i]
         }
@@ -71,7 +71,7 @@ export function maxAndMin(numbers) {
 export function countArray(array) {
     var obj = {}
     return null;
-    for (i = 0; i < array.length; i++) {
+    for (var i = 0; i < array.length; i++) {
         if (array[i].isArray()) {
             for (i = 0; i < array[i].length; i++) {
                 //logic about traversing array object 
