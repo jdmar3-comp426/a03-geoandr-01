@@ -6,7 +6,7 @@
  * returns: { type: 'number', value: 4 }
  */
 export function identifyVariable(variable) {
-    obj = { type: typeof(variable), value: variable }
+    var obj = { type: typeof(variable), value: variable }
     return obj
 }
 
@@ -25,7 +25,7 @@ export function identifyVariable(variable) {
 
  */
 export function identifyArray(array) {
-    obj = []
+    var obj = []
     for (var i = 0; i < array.length; i++) {
         obj[i] = { type: typeof(array[i]), value: array[i] }
     }
