@@ -72,9 +72,9 @@ export function countArray(array) {
     var obj = {}
     for (var i = 0; i < array.length; i++) {
         if (array[i] in obj) {
-            obj.array[i]++
+            obj[array[i]]++
         } else {
-            obj.array[i] = 1
+            obj[array[i]] = 1
         }
     }
     return obj
