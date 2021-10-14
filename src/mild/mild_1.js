@@ -53,8 +53,8 @@ export function maxAndMin(numbers) {
         }
     }
     return {
-        min,
         max,
+        min,
     }
 }
 
