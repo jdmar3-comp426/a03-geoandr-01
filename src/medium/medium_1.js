@@ -74,8 +74,11 @@ export function getStatistics(array) {
             max = array[i]
         }
     }
-    var variance = sum / length
-    var standard_deviation = Math.sqrt(sum / length)
+    var variance = array.reduce(function(first, second) {
+        first = first + Math.pow((second - mean), 2);
+        return first;
+    }, 0)
+    var standard_deviation = Math.sqrt(variance)
 
     var object = {
         length: length,
