@@ -1,4 +1,4 @@
-import { variance, variance } from "./data/stats_helpers.js";
+import { variance } from "./data/stats_helpers.js";
 
 /**
  * Gets the sum of an array of numbers.
@@ -74,8 +74,8 @@ export function getStatistics(array) {
             max = array[i]
         }
     }
-    var variance = variance(array, mean)
-    var standard_deviation = Math.sqrt(variance)
+    var vari = variance(array, mean)
+    var standard_deviation = Math.sqrt(vari)
 
     var object = {
         length: length,
