@@ -40,7 +40,7 @@ allCarStats.avgMpg["city"] = allCarStats.avgMpg["city"] / mpg_data.length
 
 allCarStats.avgMpg["highway"] = allCarStats.avgMpg["highway"] / mpg_data.length
 
-allCarStats.allYearStats = getStatistics(mpg_data[year])
+allCarStats.allYearStats = getStatistics(mpg_data["year"])
 
 allCarStats.ratioHybrids = ratio / mpg_data.length
 
