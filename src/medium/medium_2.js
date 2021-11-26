@@ -32,7 +32,7 @@ var ratio = 0
 for (let i = 0; i < mpg_data.length; i++) {
     allCarStats.avgMpg["city"] = mpg_data[i]["city_mpg"]
     allCarStats.avgMpg["highway"] = mpg_data[i]["highway_mpg"]
-    if (mpg_data[i][hybrid] == true) {
+    if (mpg_data[i]["hybrid"] == true) {
         ratio++
     }
 }
