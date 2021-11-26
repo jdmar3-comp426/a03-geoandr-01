@@ -74,7 +74,7 @@ export function getStatistics(array) {
             max = array[i]
         }
     }
-    var variance = Math.variance(array)
+    var variance = sum / length
     var standard_deviation = Math.sqrt(sum / length)
 
     var object = {
@@ -88,5 +88,5 @@ export function getStatistics(array) {
         standard_deviation: standard_deviation
     }
 
-
+    return object
 }
