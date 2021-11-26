@@ -35,7 +35,7 @@ export function getMedian(array) {
         sum = sum / 2
         return sum
     }
-    middle = middle + 0.5
+    middle = middle
     return array[middle]
 }
 
