@@ -134,7 +134,7 @@ for (let i = 0; i < arrayHybridMakes.length; i++) {
 
 finalArray = finalArray.filter(object => object["hybrids"].length != 0)
 
-console.log(finalArray)
+//console.log(finalArray)
 
 
 export const moreStats = {
