@@ -99,7 +99,7 @@ export function removeKeys(object, keyList) {
     var newObject = {
         ...object
     }
-    for (let i = 0; i < keyList.length(); i++) {
+    for (let i = 0; i < keyList.length; i++) {
         delete newObject[keyList[i]]
     }
     return newObject
