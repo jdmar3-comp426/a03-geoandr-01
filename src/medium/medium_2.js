@@ -107,6 +107,32 @@ allCarStats.ratioHybrids = ratio / mpg_data.length
  *
  * }
  */
+
+
+var arrayAllHybirds = mpg_data.filter(object => object["hybird"] != false)
+var arrayHybirdMakes = []
+for (let i = 0; i < arrayAllHybirds.length; i++) {
+    if (!arrayHybirdMakes.includes(mpg_data[i]["make"])) {
+        arrayHybirdMakes.push(mpg_data[i]["make"])
+    }
+}
+var arrayMakeAndHybird = []
+var finalArray = []
+for (let i = 0; i < arrayHybirdMakes.length; i++) {
+    arrayMakeAndHybird = arrayAllHybirds.filter(object => object["make"] == arrayHybirdMakes[i])
+    var object = {
+        "make": arrayHybirdMakes[i],
+        "hybirds": [],
+    }
+    for (let j = 0; j < arrayMakeAndHybird.length; j++) {
+        if (!object["hybirds"].includes(arrayMakeAndHybird[i]["id"])) {
+            object["hybirds"].push(arrayMakeAndHybird[i]["id"])
+        }
+    }
+    finalArray.push(object)
+}
+
+
 export const moreStats = {
     makerHybrids: undefined,
     avgMpgByYearAndHybrid: undefined
