@@ -29,18 +29,20 @@ export const allCarStats = {
 };
 
 var ratio = 0
+var yearArray = []
 for (let i = 0; i < mpg_data.length; i++) {
     allCarStats.avgMpg["city"] = mpg_data[i]["city_mpg"]
     allCarStats.avgMpg["highway"] = mpg_data[i]["highway_mpg"]
     if (mpg_data[i]["hybrid"] == true) {
         ratio++
     }
+    yearArray.push(mpg_data[i]["year"])
 }
 allCarStats.avgMpg["city"] = allCarStats.avgMpg["city"] / mpg_data.length
 
 allCarStats.avgMpg["highway"] = allCarStats.avgMpg["highway"] / mpg_data.length
 
-allCarStats.allYearStats = getStatistics(mpg_data["year"])
+allCarStats.allYearStats = getStatistics(yearArray)
 
 allCarStats.ratioHybrids = ratio / mpg_data.length
 
