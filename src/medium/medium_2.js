@@ -31,8 +31,8 @@ export const allCarStats = {
 var ratio = 0
 var yearArray = []
 for (let i = 0; i < mpg_data.length; i++) {
-    allCarStats.avgMpg["city"] = mpg_data[i]["city_mpg"]
-    allCarStats.avgMpg["highway"] = mpg_data[i]["highway_mpg"]
+    allCarStats.avgMpg["city"] += mpg_data[i]["city_mpg"]
+    allCarStats.avgMpg["highway"] += mpg_data[i]["highway_mpg"]
     if (mpg_data[i]["hybrid"] == true) {
         ratio++
     }
