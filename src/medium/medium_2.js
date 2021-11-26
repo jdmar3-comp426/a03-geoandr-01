@@ -110,10 +110,13 @@ allCarStats.ratioHybrids = ratio / mpg_data.length
 
 
 var arrayAllHybrids = mpg_data.filter(object => object["hybrid"] == true)
+var arrayAllNotHybrids = mpg_data.filter(object => object["hybrid"] == false)
+
+
 var arrayHybridMakes = []
 for (let i = 0; i < arrayAllHybrids.length; i++) {
-    if (!arrayHybridMakes.includes(mpg_data[i]["make"])) {
-        arrayHybridMakes.push(mpg_data[i]["make"])
+    if (!arrayHybridMakes.includes(arrayAllHybrids[i]["make"])) {
+        arrayHybridMakes.push(arrayAllHybrids[i]["make"])
     }
 }
 var arrayMakeAndHybrid = []
@@ -131,13 +134,67 @@ for (let i = 0; i < arrayHybridMakes.length; i++) {
     }
     finalArray.push(object)
 }
-
-finalArray = finalArray.filter(object => object["hybrids"].length != 0)
-
-//console.log(finalArray)
+finalArray.sort(function(a, b) { return b["hybrids"].length - a["hybrids"].length })
+    //console.log(finalArray)
 
 
 export const moreStats = {
     makerHybrids: undefined,
     avgMpgByYearAndHybrid: undefined
 };
+
+moreStats.makerHybrids = finalArray
+
+var finalObject = {}
+var yearsArray = []
+for (let i = 0; i < mpg_data.length; i++) {
+    if (!yearsArray.includes(mpg_data[i]["year"])) {
+        yearsArray.push(mpg_data[i]["year"])
+    }
+}
+
+for (let i = 0; i < yearsArray.length; i++) {
+    var year = yearsArray[i] + ""
+    finalObject[year] = {
+        hybrid: {
+            city: undefined,
+            highway: undefined,
+        },
+        notHybrid: {
+            city: undefined,
+            highway: undefined,
+        }
+    }
+}
+//for (let i = 0; i < final2Array.length; i++) {
+//console.log(final2Array[i])
+//}
+for (let i = 0; i < yearsArray.length; i++) {
+    var arrayOfYearAndHybrid = mpg_data.filter(object => object["hybrid"] == true && object["year"] == yearsArray[i])
+    var arrayOfYearAndNotHybrid = mpg_data.filter(object => object["hybrid"] == false && object["year"] == yearsArray[i])
+
+    var totalCityHybrid = 0
+    var totalHighwayHybrid = 0
+    var totalCityNotHybrid = 0
+    var totalHighwayNotHybrid = 0
+
+    for (let j = 0; j < arrayOfYearAndHybrid.length; j++) {
+        totalCityHybrid = totalCityHybrid + arrayOfYearAndHybrid[j]['city_mpg']
+        totalHighwayHybrid = totalHighwayHybrid + arrayOfYearAndHybrid[j]['highway_mpg']
+    }
+    for (let j = 0; j < arrayOfYearAndNotHybrid.length; j++) {
+        totalCityNotHybrid = totalCityNotHybrid + arrayOfYearAndNotHybrid[j]['city_mpg']
+        totalHighwayNotHybrid = totalHighwayNotHybrid + arrayOfYearAndNotHybrid[j]['highway_mpg']
+    }
+    var averageCityHybrid = totalCityHybrid / arrayOfYearAndHybrid.length
+    var averageHighwayHybrid = totalHighwayHybrid / arrayOfYearAndHybrid.length
+    var averageCityNotHybrid = totalCityNotHybrid / arrayOfYearAndNotHybrid.length
+    var averageHighwayNotHybrid = totalHighwayNotHybrid / arrayOfYearAndNotHybrid.length
+
+    var currentYear = String(yearsArray[i])
+    finalObject[currentYear]["hybrid"]["city"] = averageCityHybrid
+    finalObject[currentYear]["hybrid"]["highway"] = averageHighwayHybrid
+    finalObject[currentYear]["notHybrid"]["city"] = averageCityNotHybrid
+    finalObject[currentYear]["notHybrid"]["highway"] = averageHighwayNotHybrid
+
+}
