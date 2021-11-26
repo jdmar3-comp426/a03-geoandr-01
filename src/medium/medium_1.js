@@ -84,7 +84,7 @@ export function getStatistics(array) {
         median: median,
         min: min,
         max: max,
-        variance: variance,
+        variance: vari,
         standard_deviation: standard_deviation
     }
 
