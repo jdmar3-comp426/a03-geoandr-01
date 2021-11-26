@@ -109,28 +109,32 @@ allCarStats.ratioHybrids = ratio / mpg_data.length
  */
 
 
-var arrayAllHybirds = mpg_data.filter(object => object["hybird"] != false)
-var arrayHybirdMakes = []
-for (let i = 0; i < arrayAllHybirds.length; i++) {
-    if (!arrayHybirdMakes.includes(mpg_data[i]["make"])) {
-        arrayHybirdMakes.push(mpg_data[i]["make"])
+var arrayAllHybrids = mpg_data.filter(object => object["hybrid"] == true)
+var arrayHybridMakes = []
+for (let i = 0; i < arrayAllHybrids.length; i++) {
+    if (!arrayHybridMakes.includes(mpg_data[i]["make"])) {
+        arrayHybridMakes.push(mpg_data[i]["make"])
     }
 }
-var arrayMakeAndHybird = []
+var arrayMakeAndHybrid = []
 var finalArray = []
-for (let i = 0; i < arrayHybirdMakes.length; i++) {
-    arrayMakeAndHybird = arrayAllHybirds.filter(object => object["make"] == arrayHybirdMakes[i])
+for (let i = 0; i < arrayHybridMakes.length; i++) {
+    arrayMakeAndHybrid = arrayAllHybrids.filter(object => object["make"] == arrayHybridMakes[i])
     var object = {
-        "make": arrayHybirdMakes[i],
-        "hybirds": [],
+        "make": arrayHybridMakes[i],
+        "hybrids": [],
     }
-    for (let j = 0; j < arrayMakeAndHybird.length; j++) {
-        if (!object["hybirds"].includes(arrayMakeAndHybird[i]["id"])) {
-            object["hybirds"].push(arrayMakeAndHybird[i]["id"])
+    for (let j = 0; j < arrayMakeAndHybrid.length; j++) {
+        if (!object["hybrids"].includes(arrayMakeAndHybrid[j]["id"])) {
+            object["hybrids"].push(arrayMakeAndHybrid[j]["id"])
         }
     }
     finalArray.push(object)
 }
+
+finalArray = finalArray.filter(object => object["hybrids"].length != 0)
+
+console.log(finalArray)
 
 
 export const moreStats = {
