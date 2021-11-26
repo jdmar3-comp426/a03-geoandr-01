@@ -196,5 +196,5 @@ for (let i = 0; i < yearsArray.length; i++) {
     finalObject[currentYear]["hybrid"]["highway"] = averageHighwayHybrid
     finalObject[currentYear]["notHybrid"]["city"] = averageCityNotHybrid
     finalObject[currentYear]["notHybrid"]["highway"] = averageHighwayNotHybrid
-
 }
+moreStats.avgMpgByYearAndHybrid = finalObject
