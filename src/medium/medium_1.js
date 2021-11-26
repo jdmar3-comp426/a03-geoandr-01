@@ -60,5 +60,33 @@ export function getMedian(array) {
  }
  */
 export function getStatistics(array) {
+    var length = array.length
+    var sum = getSum(array)
+    var mean = sum / length
+    var median = getMedian(array)
+    var min = 10000
+    var max = 0
+    for (let i = 0; i < length; i++) {
+        if (array[i] < min) {
+            min = array[i]
+        }
+        if (array[i] > max) {
+            max = array[i]
+        }
+    }
+    var variance = Math.variance(array)
+    var standard_deviation = Math.sqrt(sum / length)
+
+    var object = {
+        length: length,
+        sum: sum,
+        mean: mean,
+        median: median,
+        min: min,
+        max: max,
+        variance: variance,
+        standard_deviation: standard_deviation
+    }
+
 
 }
