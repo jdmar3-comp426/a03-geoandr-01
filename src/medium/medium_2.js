@@ -1,5 +1,5 @@
 import mpg_data from "./data/mpg_data.js";
-import {getStatistics} from "./medium_1.js";
+import { getStatistics } from "./medium_1.js";
 
 /*
 This section can be done by using the array prototype functions.
@@ -24,6 +24,22 @@ export const allCarStats = {
     allYearStats: undefined,
     ratioHybrids: undefined,
 };
+
+var ratio = 0
+for (let i = 0; i < mpg_data.length; i++) {
+    allCarStats.avgMpg["city"] = mpg_data[i]["city_mpg"]
+    allCarStats.avgMpg["highway"] = mpg_data[i]["highway_mpg"]
+    if (mpg_data[i][hybrid] == true) {
+        ratio++
+    }
+}
+allCarStats.avgMpg["city"] = allCarStats.avgMpg["city"] / mpg_data.length
+
+allCarStats.avgMpg["highway"] = allCarStats.avgMpg["highway"] / mpg_data.length
+
+allCarStats.allYearStats = getStatistics(mpg_data[year])
+
+allCarStats.ratioHybrids = ratio / mpg_data.length
 
 
 /**
