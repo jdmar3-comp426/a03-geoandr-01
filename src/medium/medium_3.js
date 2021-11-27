@@ -78,6 +78,6 @@ export function searchByYear(car_data, years) {
         finalArray.concat(array)
     }
 
-    array.sort(function(a, b) { return b["year"] - a["year"] })
+    finalArray.sort(function(a, b) { return b["year"] - a["year"] })
     return finalArray
 }
