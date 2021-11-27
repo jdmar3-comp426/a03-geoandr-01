@@ -72,7 +72,6 @@ export function searchName(car_data, searchTerm) {
 export function searchByYear(car_data, years) {
     var array = []
     var finalArray = []
-    array = car_data.filter(object => object["year"] == minHighway && object['city_mpg'] >= minCity)
     for (let i = 0; i < years.length; i++) {
         array = car_data.filter(object => object["year"] == years[i])
         finalArray.concat(array)
