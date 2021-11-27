@@ -156,7 +156,7 @@ export const filter = (arr, test) => {
         pass: [],
         fail: []
     }
-    for (let i = 0; i < arr.length; i = i++) {
+    for (let i = 0; i < arr.length; i++) {
         if (test(arr[i]) == true) {
             object["pass"].push(arr[i])
         } else {
@@ -174,13 +174,13 @@ export const filter = (arr, test) => {
  */
 export const allEvensAreOdd = (arr) => {
     const test = (element) => {
-        if (element % 2 != 1) {
-            return false
-        } else {
+        if (element % 2 == 0) {
             return true
+        } else {
+            return false
         }
     }
-    everyEven(arr, test)
+    return everyEven(arr, test)
 };
 
 
